@@ -2,6 +2,12 @@
 # How to use:
 - Use this link to access the project: https://jgonzalez249.github.io/Final-Project-Redo/
 - Use slider under program to speed up for newer generations
+- Press S to save run and use it in the next model.
+
+# What is used?
+- p5js
+- p5js.collide2d library for better collisions
+- tensorFlow.js for the ML
 
 # Final-Project-Redo
  -Massive ML Failure in Unity

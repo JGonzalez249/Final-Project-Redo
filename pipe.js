@@ -19,7 +19,7 @@ class Pipe {
     return false;
   }
 
-  show() {
+  draw() {
     fill(255);
     rectMode(CORNER);
     rect(this.x, 0, this.w, this.top);

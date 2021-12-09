@@ -6,6 +6,7 @@ let pipes = [];
 let counter = 0;
 let slider;
 
+// Saves best run uses it in the model
 function keyPressed() {
   if (key === 'S') {
     let bird = birds[0];
@@ -32,6 +33,7 @@ function draw() {
     for (let i = pipes.length - 1; i >= 0; i--) {
       pipes[i].update();
 
+      // This section cuts pipes and birds from the array
       for (let j = birds.length - 1; j >= 0; j--) {
         if (pipes[i].hits(birds[j])) {
           savedBirds.push(birds.splice(j, 1)[0]);
@@ -64,17 +66,10 @@ function draw() {
   background(0);
 
   for (let bird of birds) {
-    bird.show();
+    bird.draw();
   }
 
   for (let pipe of pipes) {
-    pipe.show();
+    pipe.draw();
   }
 }
-
-// function keyPressed() {
-//   if (key == ' ') {
-//     bird.up();
-//     //console.log("SPACE");
-//   }
-// }

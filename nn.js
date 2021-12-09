@@ -13,6 +13,9 @@ class NeuralNetwork {
     }
   }
 
+    // NEED tf.tidy(()=>) TO AVOID MEMORY LEAKS
+
+    // Copies model
   copy() {
     return tf.tidy(() => {
       const modelCopy = this.createModel();
@@ -31,6 +34,7 @@ class NeuralNetwork {
     });
   }
 
+    // Mutates the model and weights different models to find most successful
   mutate(rate) {
     tf.tidy(() => {
       const weights = this.model.getWeights();
@@ -52,10 +56,12 @@ class NeuralNetwork {
     });
   }
 
+  // Similar to tidy but for smaller applications
   dispose() {
     this.model.dispose();
   }
 
+  // Predicts all the inputs within the array [0.1 - 1]
   predict(inputs) {
     return tf.tidy(() => {
       const xs = tf.tensor2d([inputs]);
@@ -66,6 +72,8 @@ class NeuralNetwork {
     });
   }
 
+  // Creates a model and using keywords from the tensorFlow API
+  // May need to use Tidy?
   createModel() {
     const model = tf.sequential();
     const hidden = tf.layers.dense({

@@ -11,6 +11,7 @@ function nextGeneration() {
   });
 }
 
+// Picks a random number of birds and adds to the index array while the there are more than 1
 function pickOne() {
   let index = 0;
   let r = random(1);
@@ -18,12 +19,14 @@ function pickOne() {
     r = r - savedBirds[index].fitness;
     index++;
   }
+  // Otherwise, take away from the array and save the previous bird model
   index--;
   let bird = savedBirds[index];
   let child = new Bird(bird.brain);
   child.mutate();
   return child;
 }
+
 
 function calculateFitness() {
   let sum = 0;

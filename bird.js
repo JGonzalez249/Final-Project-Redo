@@ -18,7 +18,7 @@ class Bird {
 
   }
 
-  show() {
+  draw() {
     stroke(255);
     fill(255, 100);
     ellipse(this.x, this.y, 32, 32);
@@ -34,7 +34,7 @@ class Bird {
 
   think(pipes) {
 
-    // Find the closest pipe
+    // Finds the closest pipe
     let closest = null;
     let closestD = Infinity;
     for (let i = 0; i < pipes.length; i++) {
@@ -45,7 +45,7 @@ class Bird {
       }
     }
 
-
+    // Inputs array to show what inputs are available in the model
     let inputs = [];
     inputs[0] = this.y / height;
     inputs[1] = closest.top / height;
