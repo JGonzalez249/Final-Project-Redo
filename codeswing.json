@@ -1,7 +1,8 @@
 {
   "scripts": [
     "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js",
-    "https://cdn.jsdelivr.net/gh/bmoren/p5.collide2D/p5.collide2d.min.js"
+    "https://cdn.jsdelivr.net/gh/bmoren/p5.collide2D/p5.collide2d.min.js",
+    "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"
   ],
   "styles": [],
   "showConsole": true

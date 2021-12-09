@@ -1,5 +1,5 @@
 
-const TOTAL = 500;
+const TOTAL = 250;
 let birds = [];
 let savedBirds = [];
 let pipes = [];
@@ -16,6 +16,7 @@ function keyPressed() {
 function setup() {
   createCanvas(640, 480);
   slider = createSlider(1, 10, 1);
+  tf.setBackend('cpu'); //Amount of data is so small that it should not affect cpu
   for (let i = 0; i < TOTAL; i++) {
     birds[i] = new Bird();
   }
@@ -60,7 +61,6 @@ function draw() {
     }
   }
 
-  // All the drawing stuff
   background(0);
 
   for (let bird of birds) {

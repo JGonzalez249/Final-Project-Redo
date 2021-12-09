@@ -29,7 +29,7 @@ class Bird {
   }
 
   mutate() {
-    this.brain.mutate(0.1);
+    //this.brain.mutate(0.1); //Commented out due to error in nn.js
   }
 
   think(pipes) {
@@ -53,11 +53,14 @@ class Bird {
     inputs[3] = closest.x / width;
     inputs[4] = this.velocity / 10;
     let output = this.brain.predict(inputs);
-    //if (output[0] > output[1] && this.velocity >= 0) {
     if (output[0] > output[1]) {
       this.up();
     }
 
+  }
+
+  dipose(){
+    this.brain.dipose();
   }
 
   offScreen() {
