@@ -67,7 +67,7 @@ class NeuralNetwork {
       const xs = tf.tensor2d([inputs]);
       const ys = this.model.predict(xs);
       const outputs = ys.dataSync();
-      // console.log(outputs);
+       console.log(outputs);
       return outputs;
     });
   }
@@ -75,18 +75,20 @@ class NeuralNetwork {
   // Creates a model and using keywords from the tensorFlow API
   // May need to use Tidy?
   createModel() {
-    const model = tf.sequential();
-    const hidden = tf.layers.dense({
-      units: this.hidden_nodes,
-      inputShape: [this.input_nodes],
-      activation: 'sigmoid'
-    });
-    model.add(hidden);
-    const output = tf.layers.dense({
-      units: this.output_nodes,
-      activation: 'softmax'
-    });
-    model.add(output);
-    return model;
+    return tf.tidy(() => {
+      const model = tf.sequential();
+      const hidden = tf.layers.dense({
+        units: this.hidden_nodes,
+        inputShape: [this.input_nodes],
+        activation: 'sigmoid'
+      });
+      model.add(hidden);
+      const output = tf.layers.dense({
+        units: this.output_nodes,
+        activation: 'softmax'
+      });
+      model.add(output);
+      return model;
+    })
   }
 }

@@ -1,26 +1,42 @@
-
 class Pipe {
 
   constructor() {
-    this.spacing = 125;
+    this.spacing = 150;
     this.top = random(height / 6, 3 / 4 * height);
     this.bottom = height - (this.top + this.spacing);
     this.x = width;
-    this.w = 80;
-    this.speed = 6;
+    this.w = 25;
+    this.speed = 5;
+    this.highlight = false;
   }
 
   hits(bird) {
     if (bird.y < this.top || bird.y > height - this.bottom) {
       if (bird.x > this.x && bird.x < this.x + this.w) {
+        this.highlight = true;
         return true;
       }
     }
+    this.highlight = false;
+    return false;
+  }
+
+  hitsPlayer(playerBird){
+    if (bird.y < this.top || bird.y > height - this.bottom) {
+      if (bird.x > this.x && bird.x < this.x + this.w) {
+        this.highlight = true;
+        return true;
+      }
+    }
+    this.highlight = false;
     return false;
   }
 
   draw() {
     fill(255);
+    if(this.highlight === true) {
+      fill(255,0,0);
+    }
     rectMode(CORNER);
     rect(this.x, 0, this.w, this.top);
     rect(this.x, height - this.bottom, this.w, this.bottom);

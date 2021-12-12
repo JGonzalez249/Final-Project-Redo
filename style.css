@@ -1,3 +1,11 @@
+p {
+  font-family: 'Prompt', sans-serif;
+  padding-left: 1rem;
+}
+span{
+  font-family: 'Prompt', sans-serif;
+}
+
 html, body {
     margin: 0;
     padding: 0;
