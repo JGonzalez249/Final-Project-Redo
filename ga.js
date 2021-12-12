@@ -1,15 +1,13 @@
 function nextGeneration() {
-  return tf.tidy(()=>{
     calculateFitness();
     for (let i = 0; i < TOTAL; i++) {
       birds[i] = pickOne();
     }
-    // for (let i = 0; i < TOTAL; i++) {
-    //   savedBirds[i].dispose(); // dispose broke the program, use tidy instead
-    // }
+    for (let i = 0; i < TOTAL; i++) {
+     savedBirds[i].dispose(); 
+    }
     savedBirds = [];
-  });
-}
+  }
 
 // Picks a random number of birds and adds to the index array while the there are more than 1
 function pickOne() {

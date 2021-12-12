@@ -59,8 +59,8 @@ class Bird {
 
   }
 
-  dipose(){
-    this.brain.dipose();
+  dispose(){
+    this.brain.dispose();
   }
 
   offScreen() {
