@@ -29,7 +29,7 @@ class Bird {
   }
 
   mutate() {
-    //this.brain.mutate(0.1); //Commented out due to error in nn.js
+    this.brain.mutate(0.1);
   }
 
   think(pipes) {
