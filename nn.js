@@ -13,9 +13,9 @@ class NeuralNetwork {
     }
   }
 
-    // NEED tf.tidy(()=>) TO AVOID MEMORY LEAKS
+  // NEED tf.tidy(()=>) TO AVOID MEMORY LEAKS
 
-    // Copies model
+  // Copies model
   copy() {
     return tf.tidy(() => {
       const modelCopy = this.createModel();
@@ -34,7 +34,7 @@ class NeuralNetwork {
     });
   }
 
-    // Mutates the model and weights different models to find most successful
+  // Mutates the model and weights different models to find most successful
   mutate(rate) {
     tf.tidy(() => {
       const weights = this.model.getWeights();
@@ -67,7 +67,7 @@ class NeuralNetwork {
       const xs = tf.tensor2d([inputs]);
       const ys = this.model.predict(xs);
       const outputs = ys.dataSync();
-       console.log(outputs);
+      //console.log(outputs);
       return outputs;
     });
   }
@@ -80,15 +80,15 @@ class NeuralNetwork {
       const hidden = tf.layers.dense({
         units: this.hidden_nodes,
         inputShape: [this.input_nodes],
-        activation: 'sigmoid'
+        activation: "sigmoid",
       });
       model.add(hidden);
       const output = tf.layers.dense({
         units: this.output_nodes,
-        activation: 'softmax'
+        activation: "softmax",
       });
       model.add(output);
       return model;
-    })
+    });
   }
 }

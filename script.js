@@ -1,5 +1,4 @@
-
-const TOTAL = 500;
+const TOTAL = 250;
 let birds = [];
 let savedBirds = [];
 let pipes = [];
@@ -7,24 +6,21 @@ let counter = 0;
 let slider;
 
 let player;
-let highScore;
-let generationScore;
-
 
 function setup() {
   createCanvas(600, 400);
   //canvas.parent('canvas__container');
   slider = createSlider(1, 10, 1);
-  tf.setBackend('cpu'); //Amount of data is so small that it should not affect cpu
+  tf.setBackend("cpu"); //Amount of data is so small that it should not affect cpu
   for (let i = 0; i < TOTAL; i++) {
     birds[i] = new Bird();
   }
-  player = new Player(50, height / 2);
+  player = new Player();
 }
 
 function draw() {
   for (let n = 0; n < slider.value(); n++) {
-    if (counter % 30 == 0) {
+    if (counter % 75 == 0) {
       pipes.push(new Pipe());
     }
     counter++;
@@ -58,39 +54,41 @@ function draw() {
     if (birds.length === 0) {
       counter = 0;
       nextGeneration();
-      generationScore ++;
       pipes = [];
+      if (!player.alive) {
+        player.reset();
+        
+      }
     }
-
   }
 
-  
   background(0);
-  
+
   for (let bird of birds) {
     bird.draw();
   }
-  
+
   for (let pipe of pipes) {
     pipe.draw();
   }
-  
+
   player.draw();
   player.update();
+
 }
 
 function keyPressed() {
-  if (key == ' ') {
-    playerBird.up();
+  if (key == " ") {
+    player.up();
     console.log("SPACE");
   }
 }
 
-function saveBestBird(){
-  let json = {}
+function saveBestBird() {
+  let json = {};
   json = bestBird.brain;
 
-  saveJson(json, 'BirdBrainModel.json')
+  saveJson(json, "BirdBrainModel.json");
 }
 
 // function getBrainData(json){

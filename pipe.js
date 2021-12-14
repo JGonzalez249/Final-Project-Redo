@@ -1,12 +1,11 @@
 class Pipe {
-
   constructor() {
     this.spacing = 150;
-    this.top = random(height / 6, 3 / 4 * height);
+    this.top = random(height / 6, (3 / 4) * height);
     this.bottom = height - (this.top + this.spacing);
     this.x = width;
     this.w = 30;
-    this.speed = 5;
+    this.speed = 2;
     this.highlight = false;
   }
 
@@ -21,23 +20,20 @@ class Pipe {
     return false;
   }
 
-  hitsPlayer(playerBird){
-    if (playerBird.pos.y < this.top || playerBird.pos.y > height - this.bottom) {
-      if (playerBird.pos.x > this.x && playerBird.pos.x < this.x + this.w) {
-        this.highlight = true;
-        playerBird.alive = false;
+  hitsPlayer(player) {
+    if (player.y < this.top || player.y > height - this.bottom) {
+      if (player.x > this.x && player.x < this.x + this.w) {
+        console.log("player hit pipe");
         return true;
       }
     }
-    this.highlight = false;
-    playerBird.alive = true;
     return false;
   }
 
   draw() {
     fill(255);
-    if(this.highlight === true) {
-      fill(255,0,0);
+    if (this.highlight === true) {
+      fill(255, 0, 0);
     }
     rectMode(CORNER);
     rect(this.x, 0, this.w, this.top);
