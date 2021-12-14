@@ -8,17 +8,19 @@ class Bird {
     this.velocity = 0;
     this.size = 16;
 
+
     this.score = 0;
     this.fitness = 0;
     if (brain) {
       this.brain = brain.copy();
     } else {
-      this.brain = new NeuralNetwork(5, 10, 6);
+      this.brain = new NeuralNetwork(5, 4, 2);
     }
 
   }
 
   draw() {
+
     stroke(255);
     fill(255,0,0, 100);
     ellipse(this.x, this.y, this.size, this.size);
@@ -30,7 +32,7 @@ class Bird {
 
 
   mutate() {
-    this.brain.mutate(0.9);
+    this.brain.mutate(0.1);
   }
 
   think(pipes) {
