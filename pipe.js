@@ -23,10 +23,11 @@ class Pipe {
   hitsPlayer(player) {
     if (player.y < this.top || player.y > height - this.bottom) {
       if (player.x > this.x && player.x < this.x + this.w) {
-        console.log("player hit pipe");
+        player.alive = false;
         return true;
       }
     }
+    player.alive = true;
     return false;
   }
 

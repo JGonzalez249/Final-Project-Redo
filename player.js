@@ -20,14 +20,26 @@ class Player {
     if (this.y < pipes.top || this.y > height - pipes.bottom) {
       if (this.x > pipes.x && this.x < pipes.x + pipes.w) {
         console.log("player hit pipe");
-        return true;
+        return false;
       }
     }
-    return false;
+    return true;
   }
 
   up() {
     this.velocity += this.lift;
+  }
+
+  collide(pipes){
+    if (this.y < pipes[i].top || this.y > height - pipes[i].bottom) {
+      if (this.x > pipes[i].x && this.x < pipes[i].x + pipes[i].w) {
+        console.log('player hit pipe')
+        this.alive = false;
+        return false;
+      }
+    }
+    this.alive = true;
+    return true;
   }
   reset() {
     this.x = 50;
@@ -38,9 +50,10 @@ class Player {
     this.alive = true;
   }
   offScreen() {
-    this.alive = false;
-    //console.log("Dead Offscreen")
-    return this.y > height || this.y < 0;
+    if(this.y > height || this.y < 0){
+      console.log("Dead Offscreen")
+
+    }
   }
   update() {
     if(!this.alive) return;

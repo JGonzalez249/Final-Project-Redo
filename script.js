@@ -28,6 +28,10 @@ function draw() {
     for (let i = pipes.length - 1; i >= 0; i--) {
       pipes[i].update();
 
+      if(pipes[i].hits(player)){
+        console.log('player hit pipe')
+        player.alive = false;
+      }
       // This section cuts pipes and birds from the array
       for (let j = birds.length - 1; j >= 0; j--) {
         if (pipes[i].hits(birds[j])) {
@@ -40,6 +44,7 @@ function draw() {
       }
     }
 
+
     for (let i = birds.length - 1; i >= 0; i--) {
       if (birds[i].offScreen()) {
         savedBirds.push(birds.splice(i, 1)[0]);
@@ -51,14 +56,11 @@ function draw() {
       bird.update();
     }
 
-    if (birds.length === 0) {
+    if (birds.length === 0 && !player.alive) {
       counter = 0;
       nextGeneration();
       pipes = [];
-      if (!player.alive) {
-        player.reset();
-        
-      }
+      player.reset();
     }
   }
 
@@ -71,9 +73,10 @@ function draw() {
   for (let pipe of pipes) {
     pipe.draw();
   }
-
-  player.draw();
-  player.update();
+  if(player.alive){
+    player.draw();
+    player.update();
+  }
 
 }
 
