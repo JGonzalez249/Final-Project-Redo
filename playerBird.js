@@ -1,9 +1,12 @@
 class Player {
-    constructor(x,y) {
-        this.pos = createVector(x,y)
+    constructor() {
+        this.x = 50;
+        this.y = height / 2;
         this.size = 16;
+        this.gravity = 1;
+        this.lift = -15;
         this.velocity = 0;
-      //this.playerScore = 0;
+        this.alive = false;
     }
 
     draw(){
@@ -12,9 +15,14 @@ class Player {
         ellipse(this.x, this.y, this.size, this.size);
     }
 
+    up(){
+        this.velocity += this.lift;
+    }
+
     update() {
-        //this.playerScore++;       
-        this.y += this.velocity;
-          
+        //this.playerScore++;     
+        this.velocity += this.gravity;  
+        this.y += this.velocity; 
+            
     }
 }
