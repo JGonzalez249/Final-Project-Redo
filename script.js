@@ -4,6 +4,7 @@ let savedBirds = [];
 let pipes = [];
 let counter = 0;
 let slider;
+let resetButton;
 
 let player;
 
@@ -11,6 +12,9 @@ function setup() {
   createCanvas(600, 400);
   //canvas.parent('canvas__container');
   slider = createSlider(1, 10, 1);
+  resetButton = createButton("Reset Player");
+  
+  resetButton.mousePressed(resetGame)
   tf.setBackend("cpu"); //Amount of data is so small that it should not affect cpu
   for (let i = 0; i < TOTAL; i++) {
     birds[i] = new Bird();
@@ -29,7 +33,7 @@ function draw() {
       pipes[i].update();
 
       if(pipes[i].hits(player)){
-        console.log('player hit pipe')
+        //console.log('player hit pipe')
         player.alive = false;
       }
       // This section cuts pipes and birds from the array
@@ -50,6 +54,8 @@ function draw() {
         savedBirds.push(birds.splice(i, 1)[0]);
       }
     }
+
+
 
     for (let bird of birds) {
       bird.think(pipes);
@@ -83,8 +89,12 @@ function draw() {
 function keyPressed() {
   if (key == " ") {
     player.up();
-    console.log("SPACE");
+    //console.log("SPACE");
   }
+}
+
+function resetGame(){
+  player.reset();
 }
 
 function saveBestBird() {

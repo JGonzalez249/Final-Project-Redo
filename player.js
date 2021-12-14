@@ -19,7 +19,7 @@ class Player {
   hits(pipes) {
     if (this.y < pipes.top || this.y > height - pipes.bottom) {
       if (this.x > pipes.x && this.x < pipes.x + pipes.w) {
-        console.log("player hit pipe");
+        //console.log("player hit pipe");
         return false;
       }
     }
@@ -51,8 +51,7 @@ class Player {
   }
   offScreen() {
     if(this.y > height || this.y < 0){
-      console.log("Dead Offscreen")
-
+      console.log("Player died offscreen")
     }
   }
   update() {

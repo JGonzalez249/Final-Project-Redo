@@ -1,12 +1,13 @@
 class Pipe {
   constructor() {
-    this.spacing = 150;
+    this.spacing = 100;
     this.top = random(height / 6, (3 / 4) * height);
     this.bottom = height - (this.top + this.spacing);
     this.x = width;
     this.w = 30;
-    this.speed = 2;
+    this.speed = 3;
     this.highlight = false;
+    this.playerHighlight = false;
   }
 
   hits(bird) {
