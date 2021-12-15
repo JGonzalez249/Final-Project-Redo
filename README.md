@@ -20,7 +20,7 @@
 
 <p> I used many tutorials in order to make this project, as I had no idea how ML worked in processing. Originally, I wanted to use a previous project for the AI to learn, to play Asteroids, but decided for something simpler instead which was a Flappy Bird clone but with the AI playing instead of the player. Eventually, I got it to work, however, I feel like I could definitely improve the brain model. There is also some memory leak problems that needs to be addressed.</p>
 
-<p>I updated the game to include player interaction, you can play against the AI in real time. If you and the AI are dead, the game resets and the next generation of birds takes over. You can even reset the player if you die and see how long you can last before you die again. Want to try to get the whole game to reset while saving the best AI run but I'm still learning about how to do that. In the meantime, just try to see if you can keep up with the AI.</p>
+<p>I updated the game to include player interaction, you can play against the AI in real time. If you and the AI are dead, the game resets and the next generation of birds takes over. You can even reset the player if you die and see how long you can last before you die again. I want to try to get the whole game to reset while saving the best AI run but I'm still learning about how to do that. In the meantime, just try to see if you can keep up with the AI.</p>
 
 # Tutorials and Rsources Used
 - TensorFlow Examples from Github (https://github.com/tensorflow/tfjs-examples)
