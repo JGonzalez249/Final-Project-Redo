@@ -2,7 +2,7 @@
 # How to use:
 - Use this link to access the project: https://jgonzalez249.github.io/Final-Project-Redo/
 - Use slider under program to speed up for newer generations
-- Press S to save run and use it in the next model.
+- Press space bar to control the player (You're blue)
 
 # What is used?
 - p5js
