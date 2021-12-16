@@ -36,3 +36,4 @@ function calculateFitness() {
     bird.fitness = bird.score / sum;
   }
 }
+
